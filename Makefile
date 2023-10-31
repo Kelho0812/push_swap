@@ -4,7 +4,7 @@ LIBFT = ./include/libft/libft.a
 
 CC = cc
 
-CFLAGS = -Werror -Wall -Wextra
+CFLAGS = -Werror -Wall -Wextra -g
 
 RM = rm -rf
 

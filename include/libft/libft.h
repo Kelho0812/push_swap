@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jorteixe <jorteixe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jorteixe <jorteixe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:26:47 by jorteixe          #+#    #+#             */
-/*   Updated: 2023/10/12 12:11:18 by jorteixe         ###   ########.fr       */
+/*   Updated: 2023/10/31 12:02:25 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+
+long	ft_atoi_change (const char *str);
+
 typedef struct s_list
 {
-	void			*content;
+	int				*content;
 	struct s_list	*next;
 }	t_list;
 

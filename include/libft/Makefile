@@ -5,6 +5,7 @@ CC = cc
 AR = ar
 
 SRC = ft_atoi.c\
+	ft_atoi_change.c\
 	ft_bzero.c\
 	ft_calloc.c\
 	ft_isalnum.c\
