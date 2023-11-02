@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_errors_str.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jorteixe <jorteixe@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/02 17:32:22 by jorteixe          #+#    #+#             */
+/*   Updated: 2023/11/02 17:32:22 by jorteixe         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 int	check_number_n_space_str(char *str)
@@ -9,7 +21,7 @@ int	check_number_n_space_str(char *str)
 	{
 		if (ft_isdigit(str[i]) == 0)
 		{
-			if(str[i] != ' ' && str[i] != '+' && str[i] != '-')
+			if (str[i] != ' ' && str[i] != '+' && str[i] != '-')
 			{
 				return (0);
 			}
@@ -21,11 +33,11 @@ int	check_number_n_space_str(char *str)
 
 int	check_max_n_min_str(char *str)
 {
-	int	i;
-	long n;
-	char **str_array;
-	str_array = ft_split(str, ' ');
+	int		i;
+	long	n;
+	char	**str_array;
 
+	str_array = ft_split(str, ' ');
 	i = 0;
 	while (str_array[i] != 0)
 	{
@@ -41,11 +53,11 @@ int	check_max_n_min_str(char *str)
 
 int	check_for_dups_str(char *str)
 {
-	int	i;
-	int j;
-	char **str_array;
+	int		i;
+	int		j;
+	char	**str_array;
+
 	str_array = ft_split(str, ' ');
-	
 	i = 0;
 	while (str_array[i] != 0)
 	{
