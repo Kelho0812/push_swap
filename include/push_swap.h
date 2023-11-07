@@ -1,59 +1,82 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jorteixe <jorteixe@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/03 13:51:23 by jorteixe          #+#    #+#             */
+/*   Updated: 2023/11/03 14:05:10 by jorteixe         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-
 # include <unistd.h>
-# include <stdio.h>
+# include <stdbool.h>
 # include <stdlib.h>
 # include "./libft/libft.h"
+# include "./ft_printf/ft_printf.h"
 
 typedef struct list
 {
 	int				nb;
-	struct list	*next;
-	struct list	*previous;
-}					n_list;
+	int				index;
+	int				push_cost;
+	bool			above_median;
+	bool			cheapest;
+	struct list		*target_node;
+	struct list		*next;
+	struct list		*previous;
+}					t_stack;
 
 ///////////////////////////////////////////////////////////////////////
 //							Check for errors						 //
 ///////////////////////////////////////////////////////////////////////
 
-//This contains the declarations of functions used to check for errors in the input arguments of the push_swap program.
-//These functions are used to validate the input arguments before processing them further.
-//The functions check for errors such as invalid characters, duplicates, and out of range values.
-
-int	check_errors(int argc, char **argv);
-int check_number_n_space_str(char *str);
-int	check_max_n_min_str(char *str);
-int	check_for_dups_str(char *str);
-int	check_number_n_space_arr(int argc, char **argv);
-int	check_max_n_min_arr(int argc, char **argv);
-int	check_for_dups_arr(int argc, char **argv);
+int				check_errors(int argc, char **argv);
+int				check_number_n_space_str(char *str);
+int				check_max_n_min_str(char *str);
+int				check_for_dups_str(char *str);
+int				check_number_n_space_arr(int argc, char **argv);
+int				check_max_n_min_arr(int argc, char **argv);
+int				check_for_dups_arr(int argc, char **argv);
 
 ///////////////////////////////////////////////////////////////////////
-//							Creates lists							 //
+//							Creates / Frees lists					 //
 ///////////////////////////////////////////////////////////////////////
 
-void create_stack(n_list **stack, int argc, char **argv);
-void create_stack_str(n_list **stack, char *argv);
-void create_stack_arr(n_list **stack, int argc, char **argv);
-void create_node (n_list **stack, char *str);
-n_list *get_last_node(n_list *stack);
+void			create_stack(t_stack **stack, int argc, char **argv);
+void			create_stack_str(t_stack **stack, char *argv);
+void			create_stack_arr(t_stack **stack, int argc, char **argv);
+void			create_node(t_stack **stack, char *str);
+t_stack			*get_last_node(t_stack *stack);
+void			free_list_function(t_stack **stack);
+void			free_arr_function(char **arr);
 
 ///////////////////////////////////////////////////////////////////////
 //							Swap utils							 	 //
 ///////////////////////////////////////////////////////////////////////
 
-void swap_a(n_list **stack_a);
-void rotate_a(n_list **stack_a);
-void reverse_rotate_a(n_list **stack_a);
-void swap_b(n_list **stack_b);
-void rotate_b(n_list **stack_b);
-void reverse_rotate_b(n_list **stack_b);
-void push_a (n_list **stack_a, n_list **stack_b);
-void push_b (n_list **stack_a, n_list **stack_b);
-void ss (n_list **stack_a, n_list **stack_b);
-void rr (n_list **stack_a, n_list **stack_b);
-void rrr (n_list **stack_a, n_list **stack_b);
+void			swap_a(t_stack **stack_a);
+void			rotate_a(t_stack **stack_a);
+void			reverse_rotate_a(t_stack **stack_a);
+void			swap_b(t_stack **stack_b);
+void			rotate_b(t_stack **stack_b);
+void			reverse_rotate_b(t_stack **stack_b);
+void			push_a(t_stack **stack_a, t_stack **stack_b);
+void			push_b(t_stack **stack_a, t_stack **stack_b);
+void			ss(t_stack **stack_a, t_stack **stack_b);
+void			rr(t_stack **stack_a, t_stack **stack_b);
+void			rrr(t_stack **stack_a, t_stack **stack_b);
+
+///////////////////////////////////////////////////////////////////////
+//							Sorters							 	 	 //
+///////////////////////////////////////////////////////////////////////
+
+bool 			is_sorted(t_stack *stack);
+int				ft_stacksize(t_stack *lst);
+void 			sort_three(t_stack **stack_a);
 
 #endif

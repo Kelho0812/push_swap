@@ -6,7 +6,7 @@
 /*   By: jorteixe <jorteixe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:32:22 by jorteixe          #+#    #+#             */
-/*   Updated: 2023/11/02 17:32:22 by jorteixe         ###   ########.fr       */
+/*   Updated: 2023/11/03 13:45:09 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	check_max_n_min_str(char *str)
 		}
 		i++;
 	}
+	free_arr_function(str_array);
 	return (1);
 }
 
@@ -72,5 +73,19 @@ int	check_for_dups_str(char *str)
 		}
 		i++;
 	}
+	free_arr_function(str_array);
 	return (1);
+}
+
+void	free_arr_function(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i] != NULL)
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
 }

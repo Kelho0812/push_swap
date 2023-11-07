@@ -6,13 +6,13 @@
 /*   By: jorteixe <jorteixe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:32:17 by jorteixe          #+#    #+#             */
-/*   Updated: 2023/11/02 17:32:20 by jorteixe         ###   ########.fr       */
+/*   Updated: 2023/11/03 13:56:53 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	create_stack_str(n_list **stack, char *argv)
+void	create_stack_str(t_stack **stack, char *argv)
 {
 	char	**argv_array;
 	int		i;
@@ -26,7 +26,7 @@ void	create_stack_str(n_list **stack, char *argv)
 	}
 }
 
-void	create_stack_arr(n_list **stack, int argc, char **argv)
+void	create_stack_arr(t_stack **stack, int argc, char **argv)
 {
 	int	i;
 
@@ -38,13 +38,13 @@ void	create_stack_arr(n_list **stack, int argc, char **argv)
 	}
 }
 
-void	create_node(n_list **stack, char *str)
+void	create_node(t_stack **stack, char *str)
 {
-	n_list	*last_node;
-	n_list	*new_node;
+	t_stack	*last_node;
+	t_stack	*new_node;
 
 	last_node = get_last_node(*stack);
-	new_node = malloc(sizeof(n_list));
+	new_node = calloc(1, sizeof(t_stack));
 	if (!new_node)
 	{
 		return ;
@@ -62,7 +62,7 @@ void	create_node(n_list **stack, char *str)
 	}
 }
 
-n_list	*get_last_node(n_list *stack)
+t_stack	*get_last_node(t_stack *stack)
 {
 	if (!stack)
 	{
@@ -73,4 +73,16 @@ n_list	*get_last_node(n_list *stack)
 		stack = stack->next;
 	}
 	return (stack);
+}
+
+void	free_list_function(t_stack **stack)
+{
+	t_stack	*ptr;
+
+	while ((*stack) != NULL)
+	{
+		ptr = (*stack)->next;
+		free(*stack);
+		*stack = ptr;
+	}
 }

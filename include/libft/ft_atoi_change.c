@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_change.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jorteixe <jorteixe@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: jorteixe <jorteixe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 09:04:51 by jorteixe          #+#    #+#             */
-/*   Updated: 2023/10/31 12:02:33 by jorteixe         ###   ########.fr       */
+/*   Updated: 2023/11/03 14:06:46 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 static void	skip_spaces(unsigned char *str, int *ptr);
 static int	check_plus_minus(unsigned char *str, int *ptr);
 
-long ft_atoi_change (const char *str)
+long	ft_atoi_change(const char *str)
 {
 	unsigned char	*s;
 	int				*ptr;

@@ -6,15 +6,15 @@
 /*   By: jorteixe <jorteixe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:31:52 by jorteixe          #+#    #+#             */
-/*   Updated: 2023/11/02 17:43:04 by jorteixe         ###   ########.fr       */
+/*   Updated: 2023/11/03 13:57:43 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	push_a(n_list **stack_a, n_list **stack_b)
+void	push_a(t_stack **stack_a, t_stack **stack_b)
 {
-	n_list	*tmp;
+	t_stack	*tmp;
 
 	if (*stack_b)
 	{
@@ -37,12 +37,12 @@ void	push_a(n_list **stack_a, n_list **stack_b)
 			(*stack_a) = tmp;
 		}
 	}
-	printf("pa\n");
+	ft_printf("pa\n");
 }
 
-void	push_b(n_list **stack_a, n_list **stack_b)
+void	push_b(t_stack **stack_a, t_stack **stack_b)
 {
-	n_list	*tmp;
+	t_stack	*tmp;
 
 	if (*stack_a)
 	{
@@ -66,22 +66,22 @@ void	push_b(n_list **stack_a, n_list **stack_b)
 			(*stack_b) = tmp;
 		}
 	}
-	printf("pb\n");
+	ft_printf("pb\n");
 }
 
-void	ss(n_list **stack_a, n_list **stack_b)
+void	ss(t_stack **stack_a, t_stack **stack_b)
 {
 	swap_a(stack_a);
 	swap_b(stack_b);
 }
 
-void	rr(n_list **stack_a, n_list **stack_b)
+void	rr(t_stack **stack_a, t_stack **stack_b)
 {
 	rotate_a(stack_a);
 	rotate_b(stack_b);
 }
 
-void	rrr(n_list **stack_a, n_list **stack_b)
+void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	reverse_rotate_a(stack_a);
 	reverse_rotate_b(stack_b);

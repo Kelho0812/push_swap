@@ -6,7 +6,7 @@
 /*   By: jorteixe <jorteixe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:32:13 by jorteixe          #+#    #+#             */
-/*   Updated: 2023/11/02 17:32:13 by jorteixe         ###   ########.fr       */
+/*   Updated: 2023/11/03 13:57:00 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ int	check_errors(int argc, char **argv)
 	{
 		if (check_number_n_space_str(argv[1]) == 0
 			|| check_max_n_min_str(argv[1]) == 0
-			|| check_for_dups_str(argv[1]) == 0)
+			|| check_for_dups_str(argv[1]) == 0
+			|| argv[1][0] == '\0')
 		{
-			printf("Error");
+			ft_printf("Error");
 			return (0);
 		}
 	}
@@ -30,14 +31,14 @@ int	check_errors(int argc, char **argv)
 			|| check_max_n_min_arr(argc, argv) == 0 || check_for_dups_arr(argc,
 				argv) == 0)
 		{
-			printf("Error");
+			ft_printf("Error");
 			return (0);
 		}
 	}
 	return (1);
 }
 
-void	create_stack(n_list **stack, int argc, char **argv)
+void	create_stack(t_stack **stack, int argc, char **argv)
 {
 	if (argc == 2)
 	{
@@ -46,5 +47,55 @@ void	create_stack(n_list **stack, int argc, char **argv)
 	else
 	{
 		create_stack_arr(stack, argc, argv);
+	}
+}
+
+bool is_sorted(t_stack *stack)
+{
+	while (stack->next)
+	{
+		if (stack->nb > stack->next->nb)
+			return (false);
+		stack = stack->next;
+	}
+	return (true);
+}
+
+int	ft_stacksize(t_stack *lst)
+{
+	int		count;
+	t_stack	*ptr;
+
+	ptr = lst;
+	count = 0;
+	if (lst == NULL)
+	{
+		return (0);
+	}
+	while (ptr != NULL)
+	{
+		count++;
+		ptr = ptr->next;
+	}
+	return (count);
+}
+
+void sort_three(t_stack **stack_a)
+{
+	if (!*stack_a)
+	{
+		return;
+	}
+	if ((*stack_a)->nb > (*stack_a)->next->nb && (*stack_a)->nb > (*stack_a)->next->next->nb)
+	{
+		rotate_a(stack_a);
+	}
+	if ((*stack_a)->nb > (*stack_a)->next->nb)
+	{
+		swap_a(stack_a);
+	}
+	if ((*stack_a)->nb >(*stack_a)->next->next->nb)
+	{
+		reverse_rotate_a(stack_a);
 	}
 }

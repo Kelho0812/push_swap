@@ -6,31 +6,32 @@
 /*   By: jorteixe <jorteixe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:32:02 by jorteixe          #+#    #+#             */
-/*   Updated: 2023/11/02 17:32:53 by jorteixe         ###   ########.fr       */
+/*   Updated: 2023/11/03 13:57:30 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	swap_a(n_list **stack_a)
+void	swap_a(t_stack **stack_a)
 {
-	n_list	*tmp;
+    t_stack	*tmp;
 
-	if (*stack_a && (*stack_a)->next)
-	{
-		tmp = (*stack_a)->next;
-		(*stack_a)->next = tmp->next;
-		tmp->next->previous = (*stack_a);
-		(*stack_a)->previous = tmp;
-		tmp->next = *stack_a;
-		*stack_a = tmp;
-	}
-	printf("sa\n");
+    if (*stack_a && (*stack_a)->next)
+    {
+        tmp = (*stack_a)->next;
+        (*stack_a)->next = tmp->next;
+        if (tmp->next) // Check if tmp->next is not NULL
+            tmp->next->previous = (*stack_a);
+        (*stack_a)->previous = tmp;
+        tmp->next = *stack_a;
+        *stack_a = tmp;
+    }
+    ft_printf("sa\n");
 }
 
-void	rotate_a(n_list **stack_a)
+void	rotate_a(t_stack **stack_a)
 {
-	n_list	*tmp;
+	t_stack	*tmp;
 
 	if (*stack_a && (*stack_a)->next)
 	{
@@ -41,13 +42,13 @@ void	rotate_a(n_list **stack_a)
 		tmp->previous = get_last_node(*stack_a);
 		get_last_node(*stack_a)->next = tmp;
 	}
-	printf("ra\n");
+	ft_printf("ra\n");
 }
 
-void	reverse_rotate_a(n_list **stack_a)
+void	reverse_rotate_a(t_stack **stack_a)
 {
-	n_list	*tmp;
-	n_list	*last_node;
+	t_stack	*tmp;
+	t_stack	*last_node;
 
 	if (*stack_a && (*stack_a)->next)
 	{
@@ -59,5 +60,5 @@ void	reverse_rotate_a(n_list **stack_a)
 		tmp->previous = last_node;
 		*stack_a = last_node;
 	}
-	printf("rra\n");
+	ft_printf("rra\n");
 }
