@@ -16,16 +16,16 @@ void	swap_b(t_stack **stack_b)
 {
 	t_stack	*tmp;
 
-    if (*stack_b && (*stack_b)->next)
-    {
-        tmp = (*stack_b)->next;
-        (*stack_b)->next = tmp->next;
-        if (tmp->next) // Check if tmp->next is not NULL
-            tmp->next->previous = (*stack_b);
-        (*stack_b)->previous = tmp;
-        tmp->next = *stack_b;
-        *stack_b = tmp;
-    }
+	if (*stack_b && (*stack_b)->next)
+	{
+		tmp = (*stack_b)->next;
+		(*stack_b)->next = tmp->next;
+		if (tmp->next)
+			tmp->next->previous = (*stack_b);
+		(*stack_b)->previous = tmp;
+		tmp->next = *stack_b;
+		*stack_b = tmp;
+	}
 	ft_printf("sb\n");
 }
 

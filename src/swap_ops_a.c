@@ -14,19 +14,19 @@
 
 void	swap_a(t_stack **stack_a)
 {
-    t_stack	*tmp;
+	t_stack	*tmp;
 
-    if (*stack_a && (*stack_a)->next)
-    {
-        tmp = (*stack_a)->next;
-        (*stack_a)->next = tmp->next;
-        if (tmp->next) // Check if tmp->next is not NULL
-            tmp->next->previous = (*stack_a);
-        (*stack_a)->previous = tmp;
-        tmp->next = *stack_a;
-        *stack_a = tmp;
-    }
-    ft_printf("sa\n");
+	if (*stack_a && (*stack_a)->next)
+	{
+		tmp = (*stack_a)->next;
+		(*stack_a)->next = tmp->next;
+		if (tmp->next)
+			tmp->next->previous = (*stack_a);
+		(*stack_a)->previous = tmp;
+		tmp->next = *stack_a;
+		*stack_a = tmp;
+	}
+	ft_printf("sa\n");
 }
 
 void	rotate_a(t_stack **stack_a)

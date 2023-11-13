@@ -12,13 +12,13 @@
 
 #include "ft_printf.h"
 
-int	ft_putchar_fd_printf(char *s, int fd)
+int	ft_putstr_fd_printf(char *s, int fd)
 {
 	int	i;
 
 	i = 0;
 	if (!s)
-		return (ft_putchar_fd_printf("(null)", 1));
+		return (ft_putstr_fd_printf("(null)", 1));
 	while (s[i])
 		write(fd, &s[i++], 1);
 	return (i);

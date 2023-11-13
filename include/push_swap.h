@@ -6,33 +6,34 @@
 /*   By: jorteixe <jorteixe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 13:51:23 by jorteixe          #+#    #+#             */
-/*   Updated: 2023/11/03 14:05:10 by jorteixe         ###   ########.fr       */
+/*   Updated: 2023/11/13 17:15:50 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <unistd.h>
+# include "./ft_printf/ft_printf.h"
+# include "./libft/libft.h"
+# include <limits.h>
 # include <stdbool.h>
 # include <stdlib.h>
-# include "./libft/libft.h"
-# include "./ft_printf/ft_printf.h"
+# include <unistd.h>
 
 typedef struct list
 {
-	int				nb;
-	int				index;
-	int				push_cost;
-	bool			above_median;
-	bool			cheapest;
-	struct list		*target_node;
-	struct list		*next;
-	struct list		*previous;
-}					t_stack;
+	int			nb;
+	int			index;
+	int			push_cost;
+	bool		above_median;
+	bool		cheapest;
+	struct list	*target_node;
+	struct list	*next;
+	struct list	*previous;
+}				t_stack;
 
 ///////////////////////////////////////////////////////////////////////
-//							Check for errors						 //
+//							Check for errors							//
 ///////////////////////////////////////////////////////////////////////
 
 int				check_errors(int argc, char **argv);
@@ -44,19 +45,39 @@ int				check_max_n_min_arr(int argc, char **argv);
 int				check_for_dups_arr(int argc, char **argv);
 
 ///////////////////////////////////////////////////////////////////////
-//							Creates / Frees lists					 //
+//							List Utils									//
 ///////////////////////////////////////////////////////////////////////
 
+t_stack			*get_last_node(t_stack *stack);
 void			create_stack(t_stack **stack, int argc, char **argv);
 void			create_stack_str(t_stack **stack, char *argv);
 void			create_stack_arr(t_stack **stack, int argc, char **argv);
 void			create_node(t_stack **stack, char *str);
-t_stack			*get_last_node(t_stack *stack);
 void			free_list_function(t_stack **stack);
 void			free_arr_function(char **arr);
 
 ///////////////////////////////////////////////////////////////////////
-//							Swap utils							 	 //
+//							Biggus								//
+///////////////////////////////////////////////////////////////////////
+
+void			biggus_sortus(t_stack **a, t_stack **b);
+void			prepare_nodes_a(t_stack *a, t_stack *b);
+void			move_a_to_b(t_stack **a, t_stack **b);
+void			prepare_nodes_b(t_stack *a, t_stack *b);
+void			move_b_to_a(t_stack **a, t_stack **b);
+void			set_index_n_median(t_stack *stack);
+void			set_target_a(t_stack *a, t_stack *b);
+void			set_cost_a(t_stack *a, t_stack *b);
+void			set_cheapest(t_stack *stack);
+void			set_target_b(t_stack *a, t_stack *b);
+void			prepare_push(t_stack **stack, t_stack *top_node,
+					char stack_name);
+t_stack			*find_max(t_stack *stack);
+t_stack			*find_min(t_stack *stack);
+t_stack			*get_cheapest(t_stack *stack);
+void			min_is_top(t_stack **a);
+///////////////////////////////////////////////////////////////////////
+//							Swap utils								//
 ///////////////////////////////////////////////////////////////////////
 
 void			swap_a(t_stack **stack_a);
@@ -72,11 +93,11 @@ void			rr(t_stack **stack_a, t_stack **stack_b);
 void			rrr(t_stack **stack_a, t_stack **stack_b);
 
 ///////////////////////////////////////////////////////////////////////
-//							Sorters							 	 	 //
+//							Sorters										//
 ///////////////////////////////////////////////////////////////////////
 
-bool 			is_sorted(t_stack *stack);
+bool			is_sorted(t_stack *stack);
 int				ft_stacksize(t_stack *lst);
-void 			sort_three(t_stack **stack_a);
+void			sort_three(t_stack **stack_a);
 
 #endif
