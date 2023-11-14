@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_put_x_upper.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jorteixe <jorteixe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jorteixe <jorteixe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 08:24:53 by jorteixe          #+#    #+#             */
-/*   Updated: 2023/10/12 10:07:03 by jorteixe         ###   ########.fr       */
+/*   Updated: 2023/11/14 08:52:30 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_count_hexa(unsigned int n);
 
-int	put_x_upper(unsigned int n, int fd)
+int	put_x_upper(int n, int fd)
 {
 	int	counter;
 

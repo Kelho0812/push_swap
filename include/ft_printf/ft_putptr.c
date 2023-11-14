@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putptr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jorteixe <jorteixe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jorteixe <jorteixe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 08:10:49 by jorteixe          #+#    #+#             */
-/*   Updated: 2023/10/12 09:50:32 by jorteixe         ###   ########.fr       */
+/*   Updated: 2023/11/14 08:54:50 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_putptr_recursive_fd(unsigned long long n, int fd);
-static int	ft_count_hexa(unsigned long long n);
+static void	ft_putptr_recursive_fd( long long n, int fd);
+static int	ft_count_hexa( long long n);
 
-int	ft_putptr_fd(unsigned long long n, int fd)
+int	ft_putptr_fd(long long n, int fd)
 {
 	int	counter;
 
@@ -34,7 +34,7 @@ int	ft_putptr_fd(unsigned long long n, int fd)
 	return (counter);
 }
 
-static void	ft_putptr_recursive_fd(unsigned long long n, int fd)
+static void	ft_putptr_recursive_fd(long long n, int fd)
 {
 	if (n >= 0 && n <= 15)
 	{
@@ -47,7 +47,7 @@ static void	ft_putptr_recursive_fd(unsigned long long n, int fd)
 	}
 }
 
-static int	ft_count_hexa(unsigned long long n)
+static int	ft_count_hexa(long long n)
 {
 	int	counter;
 

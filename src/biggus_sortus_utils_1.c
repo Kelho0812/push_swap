@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   biggus_sortus_utils_1.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jorteixe <jorteixe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jorteixe <jorteixe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 10:33:16 by jorteixe          #+#    #+#             */
-/*   Updated: 2023/11/13 17:06:56 by jorteixe         ###   ########.fr       */
+/*   Updated: 2023/11/14 12:21:54 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,22 +110,22 @@ void	prepare_push(t_stack **stack, t_stack *top_node, char stack_name)
 		{
 			if (top_node->above_median)
 			{
-				reverse_rotate_a(stack);
+				rotate_a(stack);
 			}
 			else
 			{
-				rotate_a(stack);
+				reverse_rotate_a(stack);
 			}
 		}
 		else if (stack_name == 'b')
 		{
 			if (top_node->above_median)
 			{
-				reverse_rotate_b(stack);
+				rotate_b(stack);
 			}
 			else
 			{
-				rotate_b(stack);
+				reverse_rotate_b(stack);
 			}
 		}
 	}

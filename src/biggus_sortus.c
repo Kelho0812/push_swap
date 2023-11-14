@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   biggus_sortus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jorteixe <jorteixe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jorteixe <jorteixe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:49:17 by jorteixe          #+#    #+#             */
-/*   Updated: 2023/11/13 17:15:21 by jorteixe         ###   ########.fr       */
+/*   Updated: 2023/11/14 12:19:22 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	move_a_to_b(t_stack **a, t_stack **b)
 	cheapest_node = get_cheapest(*a);
 	if (cheapest_node->above_median && cheapest_node->target_node->above_median)
 	{
-		while (*a != cheapest_node)
+		while (*a != cheapest_node && *b != cheapest_node->target_node)
 		{
 			rr(a, b);
 		}
@@ -66,7 +66,7 @@ void	move_a_to_b(t_stack **a, t_stack **b)
 	else if (!(cheapest_node->above_median)
 		&& !(cheapest_node->target_node->above_median))
 	{
-		while (*a != cheapest_node)
+		while (*a != cheapest_node && *b != cheapest_node->target_node)
 		{
 			rrr(a, b);
 		}

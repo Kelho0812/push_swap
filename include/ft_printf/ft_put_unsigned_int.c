@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_put_unsigned_int.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jorteixe <jorteixe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jorteixe <jorteixe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 08:21:40 by jorteixe          #+#    #+#             */
-/*   Updated: 2023/10/12 09:58:52 by jorteixe         ###   ########.fr       */
+/*   Updated: 2023/11/14 08:53:01 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_counter_recursive(unsigned int n);
 
-int	ft_put_unsigned_int(unsigned int n, int fd)
+int	ft_put_unsigned_int(int n, int fd)
 {
 	int	counter;
 
