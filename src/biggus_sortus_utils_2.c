@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   biggus_sortus_utils_2.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jorteixe <jorteixe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jorteixe <jorteixe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 10:49:04 by jorteixe          #+#    #+#             */
-/*   Updated: 2023/11/13 17:14:28 by jorteixe         ###   ########.fr       */
+/*   Updated: 2023/11/14 14:09:00 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	set_target_b(t_stack *a, t_stack *b)
 
 void	min_is_top(t_stack **a)
 {
-	while ((*a)->nb != find_max(*a)->nb)
+	while ((*a)->nb != find_min(*a)->nb)
 	{
 		if (find_min(*a)->above_median)
 		{
