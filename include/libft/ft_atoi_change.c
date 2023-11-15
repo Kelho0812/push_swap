@@ -6,7 +6,7 @@
 /*   By: jorteixe <jorteixe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 09:04:51 by jorteixe          #+#    #+#             */
-/*   Updated: 2023/11/03 14:06:46 by jorteixe         ###   ########.fr       */
+/*   Updated: 2023/11/15 10:38:32 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static int	check_plus_minus(unsigned char *str, int *ptr);
 long	ft_atoi_change(const char *str)
 {
 	unsigned char	*s;
-	int				*ptr;
 	int				i;
 	int				minus_count;
 	long			n;
@@ -25,9 +24,8 @@ long	ft_atoi_change(const char *str)
 	i = 0;
 	n = 0;
 	minus_count = 0;
-	ptr = &i;
-	skip_spaces(s, ptr);
-	minus_count = check_plus_minus(s, ptr);
+	skip_spaces(s, &i);
+	minus_count = check_plus_minus(s, &i);
 	while (s[i] >= '0' && s[i] <= '9' && s[i] != '\0')
 	{
 		n = n * 10;
@@ -41,31 +39,22 @@ long	ft_atoi_change(const char *str)
 
 static void	skip_spaces(unsigned char *str, int *ptr)
 {
-	int	i;
-
-	i = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+	while ((str[*ptr] >= 9 && str[*ptr] <= 13) || str[*ptr] == ' ')
 	{
-		i++;
+		(*ptr)++;
 	}
-	*ptr = i;
 }
 
 static int	check_plus_minus(unsigned char *str, int *ptr)
 {
-	int	i;
-
-	i = *ptr;
-	if (str[i] == '+')
+	if (str[*ptr] == '+')
 	{
-		i++;
+		(*ptr)++;
 	}
-	else if (str[i] == '-')
+	else if (str[*ptr] == '-')
 	{
-		i++;
-		*ptr = i;
+		(*ptr)++;
 		return (-1);
 	}
-	*ptr = i;
 	return (0);
 }

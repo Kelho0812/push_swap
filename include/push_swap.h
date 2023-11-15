@@ -6,7 +6,7 @@
 /*   By: jorteixe <jorteixe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 13:51:23 by jorteixe          #+#    #+#             */
-/*   Updated: 2023/11/13 17:15:50 by jorteixe         ###   ########.fr       */
+/*   Updated: 2023/11/15 16:59:53 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "./ft_printf/ft_printf.h"
 # include "./libft/libft.h"
 # include <limits.h>
+# include <stdarg.h>
 # include <stdbool.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -35,23 +36,20 @@ typedef struct list
 ///////////////////////////////////////////////////////////////////////
 //							Check for errors							//
 ///////////////////////////////////////////////////////////////////////
-
-int				check_errors(int argc, char **argv);
+char			**preparestrings(int argc, char **argv);
+char			*ft_jointfree(char *str, char *buff);
+int				check_errors(char **numbers_array);
 int				check_number_n_space_str(char *str);
 int				check_max_n_min_str(char *str);
-int				check_for_dups_str(char *str);
-int				check_number_n_space_arr(int argc, char **argv);
-int				check_max_n_min_arr(int argc, char **argv);
-int				check_for_dups_arr(int argc, char **argv);
-
+int				check_for_dups_str(char **str);
 ///////////////////////////////////////////////////////////////////////
 //							List Utils									//
 ///////////////////////////////////////////////////////////////////////
 
 t_stack			*get_last_node(t_stack *stack);
-void			create_stack(t_stack **stack, int argc, char **argv);
-void			create_stack_str(t_stack **stack, char *argv);
-void			create_stack_arr(t_stack **stack, int argc, char **argv);
+void			create_stack(t_stack **stack, char **argv);
+// void			create_stack_str(t_stack **stack, char *argv);
+// void			create_stack_arr(t_stack **stack, int argc, char **argv);
 void			create_node(t_stack **stack, char *str);
 void			free_list_function(t_stack **stack);
 void			free_arr_function(char **arr);
@@ -99,5 +97,9 @@ void			rrr(t_stack **stack_a, t_stack **stack_b);
 bool			is_sorted(t_stack *stack);
 int				ft_stacksize(t_stack *lst);
 void			sort_three(t_stack **stack_a);
+
+// Free
+
+void			multiple_free(const char *format, ...);
 
 #endif

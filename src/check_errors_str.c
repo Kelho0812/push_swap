@@ -6,7 +6,7 @@
 /*   By: jorteixe <jorteixe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:32:22 by jorteixe          #+#    #+#             */
-/*   Updated: 2023/11/03 13:45:09 by jorteixe         ###   ########.fr       */
+/*   Updated: 2023/11/15 16:53:06 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,59 +33,28 @@ int	check_number_n_space_str(char *str)
 
 int	check_max_n_min_str(char *str)
 {
-	int		i;
-	long	n;
-	char	**str_array;
-
-	str_array = ft_split(str, ' ');
-	i = 0;
-	while (str_array[i] != 0)
+	ft_atoi_change(str);
+	if (ft_atoi_change(str) < -2147483648 || ft_atoi_change(str) > 2147483647)
 	{
-		n = ft_atoi_change(str_array[i]);
-		if (n < -2147483648 || n > 2147483647)
-		{
-			return (0);
-		}
-		i++;
+		return (0);
 	}
-	free_arr_function(str_array);
 	return (1);
 }
 
-int	check_for_dups_str(char *str)
-{
-	int		i;
-	int		j;
-	char	**str_array;
-
-	str_array = ft_split(str, ' ');
-	i = 0;
-	while (str_array[i] != 0)
-	{
-		j = i + 1;
-		while (str_array[j] != 0)
-		{
-			if (ft_atoi_change(str_array[i]) == ft_atoi_change(str_array[j]))
-			{
-				return (0);
-			}
-			j++;
-		}
-		i++;
-	}
-	free_arr_function(str_array);
-	return (1);
-}
-
-void	free_arr_function(char **arr)
+int	check_for_dups_str(char **str)
 {
 	int	i;
+	int	j;
 
-	i = 0;
-	while (arr[i] != NULL)
+	i = -1;
+	while (str[++i])
 	{
-		free(arr[i]);
-		i++;
+		j = -1;
+		while (str[++j])
+		{
+			if (i != j && ft_atoi_change(str[i]) == ft_atoi_change(str[j]))
+				return (0);
+		}
 	}
-	free(arr);
+	return (1);
 }
