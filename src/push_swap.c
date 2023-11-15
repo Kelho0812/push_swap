@@ -6,7 +6,7 @@
 /*   By: jorteixe <jorteixe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 09:58:44 by jorteixe          #+#    #+#             */
-/*   Updated: 2023/11/15 17:19:19 by jorteixe         ###   ########.fr       */
+/*   Updated: 2023/11/15 18:05:52 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	main(int argc, char **argv)
 	free_list_function(&stack_a);
 	return (0);
 }
+
 char	**preparestrings(int argc, char **argv)
 {
 	int		i;

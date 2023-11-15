@@ -6,7 +6,7 @@
 /*   By: jorteixe <jorteixe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:26:47 by jorteixe          #+#    #+#             */
-/*   Updated: 2023/11/15 12:40:46 by jorteixe         ###   ########.fr       */
+/*   Updated: 2023/11/15 18:05:38 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 // any allocated content in case of an error.
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
-// Converts an integer 'n' to a string and returns the resulting character array.
+// Converts an integer 'n' to a string and
+// returns the resulting character array.
 char				*ft_itoa(int n);
 // Appends a string 'src' to the end of another string 'dst',
 // ensuring that the total length does not exceed the specified 'size'.
