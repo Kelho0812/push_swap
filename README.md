@@ -7,10 +7,10 @@ Push Swap is a sorting algorithm project that challenges you to sort a stack of 
 ## Table of Contents
 
 - [Introduction](#introduction)
+- [Algorithm](#algorithm)
+- [Sources, inspirations & Tools](#sources,-inspirations--tools)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Algorithm](#algorithm)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Introduction
@@ -30,7 +30,7 @@ Push Swap is a sorting program that operates on two stacks, named A and B. The g
 
 ## Algorithm
 
-I've used the "Turk Algorithm", baptized by [A.YOGUN](https://github.com/byaliego), as explained on the [Sources, inspirations & tools](#Sources,-inspirations--tools) section below.
+I've used the "Turk Algorithm", baptized by [A.YOGUN](https://github.com/byaliego), as explained on the [Sources, inspirations & tools](#sources,-inspirations--tools) section below.
 
 ## Sources, inspirations & tools
 
