@@ -28,6 +28,18 @@ Push Swap is a sorting program that operates on two stacks, named A and B. The g
 - `rrb`: reverse rotate stack B (shift all elements down by one).
 - `rrr`: do `rra` and `rrb` simultaneously.
 
+## Algorithm
+
+I've used the "Turk Algorithm", baptized by [A.YOGUN](https://github.com/byaliego), as explained on the [Sources, inspirations & tools](#Sources,-inspirations--tools) section below.
+
+## Sources, inspirations & tools
+
+- Turk Algorithm [Medium Article](https://medium.com/@ayogun/push-swap-c1f5d2d41e97) by [A.YOGUN](https://github.com/byaliego) 
+- Push Swap explanation [Youtube Video](https://www.youtube.com/watch?v=wRvipSG4Mmk) by [Thuy Quematon (AKA Thuggonaut)](https://github.com/Thuggonaut)
+- [Push Swap Tester](https://github.com/gemartin99/Push-Swap-Tester) by [Gemartin99](https://github.com/gemartin99)
+- [Push Swap Visualizer](https://github.com/o-reo/push_swap_visualizer) by [O-Reo](https://github.com/o-reo)
+- [Random Number Generator](https://www.calculatorsoup.com/calculators/statistics/random-number-generator.php)
+
 ## Installation
 
 1. Clone the repository:
@@ -58,12 +70,6 @@ Example:
 ```
 
 This will output a list of operations to sort the stack.
-
-## Algorithm
-
-[INSERT DETAILS ABOUT THE SORTING ALGORITHM USED IN THE PROJECT]
-
-## Sources, inspirations & guides
 
 ## License
 
