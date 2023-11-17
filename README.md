@@ -8,7 +8,7 @@ Push Swap is a sorting algorithm project that challenges you to sort a stack of 
 
 - [Introduction](#introduction)
 - [Algorithm](#algorithm)
-- [Sources, inspirations & Tools](#sources,-inspirations--tools)
+- [Sources, inspirations & Tools](#sources-inspirations--tools)
 - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
